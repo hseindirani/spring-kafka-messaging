@@ -1,6 +1,9 @@
 package com.example.spring_kafka_messaging.controller;
 
 import com.example.spring_kafka_messaging.service.KafkaProducerService;
+
+
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +17,8 @@ public class KafkaProducerController {
     }
 
     @GetMapping("/send")
-    public String sendMessage(@RequestParam String message) {
-        kafkaProducerService.sendMessage(message);
-        return "Message sent to Kafka: " + message;
+    public String sendMessage(@RequestParam String serviceName, @RequestParam String message) {
+        kafkaProducerService.sendMessage(serviceName, message);
+        return "🔹 Message sent to Kafka securely: " + message;
     }
 }
